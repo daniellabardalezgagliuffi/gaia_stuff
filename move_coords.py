@@ -1,4 +1,4 @@
-def crossmatch(tmassra, tmassdec, tmassepoch, gaiara, gaiadec, gaiaepoch, pmra, pmdec):
+def move_coords(tmassra, tmassdec, tmassepoch, gaiara, gaiadec, gaiaepoch, pmra, pmdec):
 
     '''Check which one of the several gaia coordinates matches 
     the input 2mass coordinate. tmass coordinates will be repeated
@@ -8,12 +8,13 @@ def crossmatch(tmassra, tmassdec, tmassepoch, gaiara, gaiadec, gaiaepoch, pmra, 
     https://gist.github.com/jiffyclub/1294443
     that converts julian date to year
     
-    All inputs are np.arrays or pd.Series
+    All inputs are np.arrays or pd.Series. Shape of arrays are: repeated 2MASS coordinates on tmassra, tmassdec for as many Gaia matches per 2MASS coordinate
     
     tmassra, tmassdec, gaiara, gaiadec =  2MASS and Gaia coordinates in degrees
     tmassepoch = 2MASS epoch in julian date - as downloaded straight from Vizier
     gaiaepoch = 2015.5 for DR2 and 2015.0 for DR1
     pmra, pmdec = proper motions in RA and Dec in mas/yr
+
     '''
     
     import pandas as pd
